@@ -18,6 +18,12 @@ public class VedioPresenter {
     private VedioModel vedioModel;
     private VedioView vedioView;
 
+    public VedioPresenter(Context context, VedioView vedioView) {
+        this.context = context;
+        this.vedioModel = new VedioModel(context);
+        this.vedioView = vedioView;
+    }
+
     public VedioPresenter(VedioView vedioView) {
         this.context = (Context) vedioView;
         this.vedioModel = new VedioModel(context);
@@ -33,14 +39,15 @@ public class VedioPresenter {
         });
     }
 
-    public void getShowping(String url,String num) {
-        vedioModel.getvedioping(url,num, new OnNetListener() {
+    public void getShowping(String url, String num) {
+        vedioModel.getvedioping(url, num, new OnNetListener() {
             @Override
             public void setOnNetListener(BaseBean baseBean) {
                 vedioView.getVedio2((PingBean) baseBean);
             }
         });
     }
+
     public void Mainnull() {
         if (vedioView != null) {
             vedioView = null;

@@ -5,20 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="guokangjie.news.com.weiying.VedioActivity">
+    android:background="@mipmap/bg_blue"
+    tools:context="guokangjie.news.com.weiying.activity.VedioActivity">
 
     <tv.danmaku.ijk.media.widget.media.IjkVideoView
         android:id="@+id/ijkPlayer"
         android:layout_width="match_parent"
-        android:layout_height="400dp" />
-
-    <Button
-        android:id="@+id/bt_all"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:text="横竖屏切换"
-        android:textSize="25dp" />
+        android:layout_height="200dp" />
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="简介"
+            android:button="@null"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:id="@+id/but1"
+            />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="评论"
+            android:button="@null"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:id="@+id/but2"
+            />
+    </RadioGroup>
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/vp"
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
 </LinearLayout>

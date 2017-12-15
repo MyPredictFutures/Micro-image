@@ -25,7 +25,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import guokangjie.news.com.weiying.R;
-import guokangjie.news.com.weiying.VedioActivity;
+import guokangjie.news.com.weiying.activity.VedioActivity;
 import guokangjie.news.com.weiying.adapter.VideoRecycleAdapter;
 import guokangjie.news.com.weiying.app.FrescoImage;
 import guokangjie.news.com.weiying.bean.PagerBean;
@@ -73,7 +73,7 @@ public class fragment_jx extends Fragment implements MainView {
         ArrayList<String> picList = new ArrayList<>();
         ArrayList<String> titleList = new ArrayList<>();
         final ArrayList<String> LoadUrlList = new ArrayList<>();
-        List<PagerBean.RetBean.ListBean.ChildListBean> List = pagerBean.getRet().getList().get(0).getChildList();
+        List<PagerBean.RetBean.ListBean.ChildListBean> List = pagerBean.getRet().getList().get(8).getChildList();
         for (PagerBean.RetBean.ListBean.ChildListBean arr : List) {
             String pic = arr.getPic();
             String title = arr.getTitle();
@@ -101,7 +101,7 @@ public class fragment_jx extends Fragment implements MainView {
         });
 
         //展示
-        java.util.List<PagerBean.RetBean.ListBean.ChildListBean> childList = pagerBean.getRet().getList().get(2).getChildList();
+        java.util.List<PagerBean.RetBean.ListBean.ChildListBean> childList = pagerBean.getRet().getList().get(7).getChildList();
         VideoRecycleAdapter videoRecycleAdapter = new VideoRecycleAdapter(getActivity(), childList);
         mRecycleJx.setAdapter(videoRecycleAdapter);
     }
