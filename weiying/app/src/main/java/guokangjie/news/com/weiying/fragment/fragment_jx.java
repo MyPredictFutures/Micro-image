@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -23,8 +24,10 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import guokangjie.news.com.weiying.R;
+import guokangjie.news.com.weiying.activity.SearchorActivity;
 import guokangjie.news.com.weiying.activity.VedioActivity;
 import guokangjie.news.com.weiying.adapter.VideoRecycleAdapter;
 import guokangjie.news.com.weiying.app.FrescoImage;
@@ -42,9 +45,13 @@ public class fragment_jx extends Fragment implements MainView {
     Banner mBannerJx;
     @BindView(R.id.recycle_jx)
     RecyclerView mRecycleJx;
+    @BindView(R.id.et_sousu)
+    TextView mEtSousu;
+
     private Unbinder unbinder;
     private MainPresenter mainPresenter;
     private String Gurl;
+    private View view;
 
     @Nullable
     @Override
@@ -111,5 +118,15 @@ public class fragment_jx extends Fragment implements MainView {
         super.onDestroyView();
         unbinder.unbind();
         mainPresenter.Mainnull();
+    }
+
+    @OnClick(R.id.et_sousu)
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.et_sousu:
+                Intent intent = new Intent(getActivity(), SearchorActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

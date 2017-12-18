@@ -17,6 +17,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding{
+        enabled true
+    }
 }
 
 dependencies {
@@ -24,6 +27,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
 
 
 
@@ -40,11 +44,10 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'fm.jiecao:jiecaovideoplayer:5.5'
     compile 'com.github.leifzhang:IjkLib:0.4.3'
-    testCompile 'junit:junit:4.12'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.facebook.fresco:fresco:1.5.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.android.support:design:25.2.0'
     compile 'com.jaeger.statusbaruitl:library:1.3.5'
-
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

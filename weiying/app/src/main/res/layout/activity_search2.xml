@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="search"
+            type="guokangjie.news.com.weiying.vmbean.VmSearchBean"></variable>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/bg_colorful"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#f42626"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                style="@style/both_wrap_style"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:background="@mipmap/search" />
+
+            <EditText
+                android:id="@+id/edt_search"
+                style="@style/both_match_style"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="请输入您喜欢的电影"
+                android:singleLine="true"
+                android:text="@={search.info}"
+                android:textColor="#fff"
+                android:textSize="14dp" />
+
+            <ImageView
+                android:id="@+id/img_clear"
+                style="@style/both_wrap_style"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@mipmap/search_history_clear"
+                android:onClick="@{()->search.deleteinfo()}"
+                android:visibility="gone"></ImageView>
+
+            <TextView
+                android:id="@+id/tv_operate"
+                style="@style/lwrap_hmatch_style"
+                android:gravity="center"
+                android:onClick="@{()->search.Searchorcan()}"
+                android:text="取消"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></FrameLayout>
+    </LinearLayout>
+</layout>

@@ -9,21 +9,41 @@
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <com.youth.banner.Banner
-                android:id="@+id/banner_jx"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"></com.youth.banner.Banner>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycle_jx"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"></android.support.v7.widget.RecyclerView>
-        </LinearLayout>
+                android:orientation="vertical">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner_jx"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"></com.youth.banner.Banner>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycle_jx"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"></android.support.v7.widget.RecyclerView>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/et_sousu"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="50dp"
+                android:background="#6666"
+                android:gravity="center"
+                android:text="一年天堂"
+                android:textColor="#666666"
+                android:textSize="20dp" />
+        </RelativeLayout>
     </ScrollView>
+
 </LinearLayout>

@@ -10,9 +10,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 import guokangjie.news.com.weiying.R;
 import guokangjie.news.com.weiying.fragment.fragment_fx;
 import guokangjie.news.com.weiying.fragment.fragment_jx;
@@ -21,59 +18,72 @@ import guokangjie.news.com.weiying.fragment.fragment_zt;
 import guokangjie.news.com.weiying.myview.MyFrameLayout;
 import guokangjie.news.com.weiying.myview.MyMainDragView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
 
-    @BindView(R.id.fl_main)
-    FrameLayout mFlMain;
-    @BindView(R.id.ll_main_jx)
-    LinearLayout mLlMainJx;
-    @BindView(R.id.ll_main_zt)
-    LinearLayout mLlMainZt;
-    @BindView(R.id.ll_main_fx)
-    LinearLayout mLlMainFx;
-    @BindView(R.id.ll_main_my)
-    LinearLayout mLlMainMy;
-    @BindView(R.id.avatar)
-    ImageView mAvatar;
-    @BindView(R.id.desc)
-    TextView mDesc;
-    @BindView(R.id.tv_collect)
-    TextView mTvCollect;
-    @BindView(R.id.tv_mydown)
-    TextView mTvMydown;
-    @BindView(R.id.tv_fuli)
-    TextView mTvFuli;
-    @BindView(R.id.tv_share)
-    TextView mTvShare;
-    @BindView(R.id.tv_feedback)
-    TextView mTvFeedback;
-    @BindView(R.id.tv_setting)
-    TextView mTvSetting;
-    @BindView(R.id.about)
-    TextView mAbout;
-    @BindView(R.id.theme)
-    TextView mTheme;
-    @BindView(R.id.main_content_frame_parent)
-    MyFrameLayout mMainContentFrameParent;
-    @BindView(R.id.my_drawer)
-    MyMainDragView mMyMainDragView;
 
+    private ImageView mAvatar;
+    /**
+     * 微影，微一下
+     */
+    private TextView mDesc;
+    private LinearLayout mTopMenu;
+    /**
+     * 我的收藏
+     */
+    private TextView mTvCollect;
+    /**
+     * 我的下载
+     */
+    private TextView mTvMydown;
+    /**
+     * 福利
+     */
+    private TextView mTvFuli;
+    /**
+     * 分享
+     */
+    private TextView mTvShare;
+    /**
+     * 建议反馈
+     */
+    private TextView mTvFeedback;
+    /**
+     * 设置
+     */
+    private TextView mTvSetting;
+    /**
+     * 关于
+     */
+    private TextView mAbout;
+    /**
+     * 主题
+     */
+    private TextView mTheme;
+    private FrameLayout mFlMain;
+    private LinearLayout mLlMainJx;
+    private LinearLayout mLlMainZt;
+    private LinearLayout mLlMainFx;
+    private LinearLayout mLlMainMy;
+    private MyFrameLayout mMainContentFrameParent;
+    private MyMainDragView mMyDrawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        initView();
+
         changeFramgnet(new fragment_jx());
-        mMyMainDragView.setDragListener(new MyMainDragView.DragListener() {
+        mMyDrawer.setDragListener(new MyMainDragView.DragListener() {
             @Override
             public void onOpen() {
-                if(mMyMainDragView.getStatus () == MyMainDragView.Status.Open){}
+                if (mMyDrawer.getStatus() == MyMainDragView.Status.Open) {
+                }
             }
 
             @Override
             public void onClose() {
-                mMyMainDragView.close();
+                mMyDrawer.close();
             }
 
             @Override
@@ -89,11 +99,34 @@ public class MainActivity extends BaseActivity {
         FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fl_main, fragment);
         fragmentTransaction.commit();
-
     }
 
-    //切换
-    @OnClick({R.id.ll_main_jx, R.id.ll_main_zt, R.id.ll_main_fx, R.id.ll_main_my, R.id.avatar, R.id.desc, R.id.tv_collect, R.id.tv_mydown, R.id.tv_fuli, R.id.tv_share, R.id.tv_feedback, R.id.tv_setting, R.id.about, R.id.theme,  R.id.fl_main})
+    private void initView() {
+        mAvatar = (ImageView) findViewById(R.id.avatar);
+        mDesc = (TextView) findViewById(R.id.desc);
+        mTopMenu = (LinearLayout) findViewById(R.id.top_menu);
+        mTvCollect = (TextView) findViewById(R.id.tv_collect);
+        mTvMydown = (TextView) findViewById(R.id.tv_mydown);
+        mTvFuli = (TextView) findViewById(R.id.tv_fuli);
+        mTvShare = (TextView) findViewById(R.id.tv_share);
+        mTvFeedback = (TextView) findViewById(R.id.tv_feedback);
+        mTvSetting = (TextView) findViewById(R.id.tv_setting);
+        mAbout = (TextView) findViewById(R.id.about);
+        mTheme = (TextView) findViewById(R.id.theme);
+        mFlMain = (FrameLayout) findViewById(R.id.fl_main);
+        mLlMainJx = (LinearLayout) findViewById(R.id.ll_main_jx);
+        mLlMainJx.setOnClickListener(this);
+        mLlMainZt = (LinearLayout) findViewById(R.id.ll_main_zt);
+        mLlMainZt.setOnClickListener(this);
+        mLlMainFx = (LinearLayout) findViewById(R.id.ll_main_fx);
+        mLlMainFx.setOnClickListener(this);
+        mLlMainMy = (LinearLayout) findViewById(R.id.ll_main_my);
+        mLlMainMy.setOnClickListener(this);
+        mMainContentFrameParent = (MyFrameLayout) findViewById(R.id.main_content_frame_parent);
+        mMyDrawer = (MyMainDragView) findViewById(R.id.my_drawer);
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_main_jx:
@@ -108,29 +141,6 @@ public class MainActivity extends BaseActivity {
             case R.id.ll_main_my:
                 changeFramgnet(new fragment_presonal());
                 break;
-            case R.id.avatar:
-                break;
-            case R.id.desc:
-                break;
-            case R.id.tv_collect:
-                break;
-            case R.id.tv_mydown:
-                break;
-            case R.id.tv_fuli:
-                break;
-            case R.id.tv_share:
-                break;
-            case R.id.tv_feedback:
-                break;
-            case R.id.tv_setting:
-                break;
-            case R.id.about:
-                break;
-            case R.id.theme:
-                break;
-            case R.id.fl_main:
-                break;
         }
     }
-
 }
