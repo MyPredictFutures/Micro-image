@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
+       // ImageLoader.displayImage(imageUri, imageView);
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter.Builder(this, getSupportFragmentManager())
                 .add("TAB1", new TabFragment())
                 .add("TAB2", new TabFragment())

@@ -108,7 +108,7 @@ public class fragment_jx extends Fragment implements MainView {
         });
 
         //展示
-        java.util.List<PagerBean.RetBean.ListBean.ChildListBean> childList = pagerBean.getRet().getList().get(7).getChildList();
+        java.util.List<PagerBean.RetBean.ListBean.ChildListBean> childList = pagerBean.getRet().getList().get(9).getChildList();
         VideoRecycleAdapter videoRecycleAdapter = new VideoRecycleAdapter(getActivity(), childList);
         mRecycleJx.setAdapter(videoRecycleAdapter);
     }

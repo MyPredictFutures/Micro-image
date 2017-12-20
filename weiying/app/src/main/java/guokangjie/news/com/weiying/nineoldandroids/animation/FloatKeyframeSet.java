@@ -38,7 +38,7 @@ class FloatKeyframeSet extends KeyframeSet {
     private float deltaValue;
     private boolean firstTime = true;
 
-    public FloatKeyframeSet(Keyframe.FloatKeyframe... keyframes) {
+    public FloatKeyframeSet(FloatKeyframe... keyframes) {
         super(keyframes);
     }
 

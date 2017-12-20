@@ -35,4 +35,8 @@ public interface ApiService {
     @FormUrlEncoded
     Observable<SouSuoBean> getSouSu(@Field("keyword") String keyword, @Field("pnum") String pnum);
 
+    //发现界面http://api.svipmovie.com/front/homePageApi/homePage.do
+    @GET("homePage.do")
+    Observable<PagerBean> getJson();
+
 }
